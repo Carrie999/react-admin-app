@@ -1,75 +1,46 @@
 const data = [
   {
-    group:'数据中心',
+    group:'group1',
     children:[{
-      tit: '数据集列表',
-      id: 'datasets',
-      icon: "ordered-list",
-      link: 'datasets'
-    },{
-      tit: '创建数据集',
-      id: 'datasetsNew',
-      icon: "plus",
-      link: 'datasets/new'
-    },{
-      show: false,
-      tit: '查看数据集',
-      link: 'datasets/view'
+      tit: 'option1',
+      id: 'option',
+      icon: "mail",
+      list: [{
+        tit: 'item1',
+        link: 'home1'
+      },{
+        tit: 'item2',
+        link: 'home2'
+      },{
+        tit: 'item3',
+        link: 'home3'
+      },{
+        tit: 'item4',
+        link: 'home4'
+      },{
+        tit: 'item5',
+        link: 'home5'
+      },{
+        tit: 'item6',
+        link: 'home6'
+      },{
+        tit: 'item7',
+        link: 'home7'
+      }]
     }]
   },{
-    group:'工程中心',
+    group:'option2',
     children:[{
-      tit: '工程列表',
-      id: 'models',
-      icon: "ordered-list",
-      link: 'models'
+      tit: 'item1',
+      id: 'item1',
+      icon: "pie-chart",
+      link: 'item1'
     },{
-      tit: '创建工程',
-      id: 'modelsNew',
-      icon: "plus",
-      link: 'models/new'
-    },{
-      show: false,
-      tit: '查看训练工程',
-      link: 'models/view'
-    },{
-      show: false,
-      tit: '编辑训练工程',
-      link: 'models/edit'
-    },{
-      tit: '训练工程',
-      id: 'train',
-      icon: "hourglass",
-      link: 'train'
-    },{
-      tit: 'SDK下载',
-      id: 'download',
-      icon: "download",
-      link: 'download'
+      tit: 'item2',
+      id: 'item2',
+      icon: "pie-chart",
+      link: 'item2'
     }]
-  },{
-    group:'用户中心',
-    children:[{
-      tit: '用户管理',
-      id: 'users',
-      icon: "user",
-      link: 'users'
-    },{
-      tit: '密码管理',
-      id: 'password',
-      icon: "lock",
-      link: 'password'
-    },{
-      show: false,
-      tit: '添加用户',
-      link: 'users/add'
-    },
-    {
-      show: false,
-      tit: '编辑用户',
-      link: 'users/edit'
-    }
-  ]
   }
 ]
 

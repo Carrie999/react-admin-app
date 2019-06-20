@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Redirect, Link} from 'react-router-dom'
-import {
-  Form, Icon, Input, Button, message
-} from 'antd';
+import { Route, Redirect } from 'react-router-dom'
 import styles from './styles/index.module.less';
 import MeteorShower from './star'
-import API from '@/axios/api_user'
-
+import {
+  Form, Icon, Input, Button,
+} from 'antd';
 
 const Store = require('locallyjs').Store,
       store = new Store()
@@ -38,6 +36,10 @@ class Login extends Component {
   state = {
     redirectToReferrer: false
   }
+  
+  componentDidMount = () => {
+   
+  }
 
   login = () => {
     store.set('isLoggedIn', true);
@@ -51,17 +53,17 @@ class Login extends Component {
   }
 
   render() {  
-    const { from } = this.props.location.state || { from: { pathname: '/datasets' } }
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { redirectToReferrer } = this.state
 
     if (redirectToReferrer === true) {
-        return <Redirect to={from} />
+      return <Redirect to={from} />
     }
 
     return (
       <div className={styles.loginWrap}>
         <MeteorShower></MeteorShower>
-        <h2 className={styles.projectName}>登录</h2> 
+        <h2 className={styles.projectName}>后台管理平台</h2> 
         <div className={styles.box}>
           <WrappedNormalLoginForm login={this.login}/>
         </div>
@@ -76,23 +78,8 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.props.login()
         console.log('Received values of form: ', values);
-        API.login(values).then((res)=>{
-          console.log(111,res)
-          if(res.code === 200){
-            store.set('username', res.data.username);
-
-            // 0是admin， 5是商家，10是用户
-            store.set('role_id', res.data.role_id);
-            store.set('user_id', res.data.user_id);
-            this.props.login()
-          }else{
-            message.error(res.message);
-          }
-        }).catch((err)=>{
-          console.log(err)
-          message.error('登录失败');
-        })
       }
     });
   }
@@ -102,10 +89,10 @@ class NormalLoginForm extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit} className={styles['login-form']}>
         <Form.Item>
-          {getFieldDecorator('username', {
+          {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名/手机号" />
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
           )}
         </Form.Item>
         <Form.Item>
@@ -118,17 +105,9 @@ class NormalLoginForm extends React.Component {
         <Form.Item>
           <Button type="primary" htmlType="submit" 
             className={styles['login-form-button']}>
-            登录
+            登陆
           </Button>
         </Form.Item>
-        <p className={styles.tips}>没有帐号？
-            <Link to={ '/register' }>
-              注册
-            </Link>
-            <Link to={ '/resetpassword' }>
-              <span className={styles.forgetPW}>忘记密码?</span>
-            </Link>
-        </p>
       </Form>
     );
   }

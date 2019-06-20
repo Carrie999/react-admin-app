@@ -10,5 +10,5 @@ import LoadingIndicator from '../../components/LoadingIndicator';
 export default Loadable({
   loader: () => import('./index'),
   loading: () => <LoadingIndicator />,
-  delay: 0
+  delay: 100
 });
