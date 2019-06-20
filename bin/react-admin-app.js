@@ -44,12 +44,13 @@ function copyDir(src, dist) {
 }
 
 try {
-  execSync('git --version', { stdio: 'ignore' });
+  execSync('git --version', { cwd: cwd, stdio: 'ignore' });
   execSync('git add -A', { stdio: 'ignore' });
   execSync('git commit -m "Initial commit from react-admin-app"', {
      stdio: 'ignore',
   });
   execSync('yarn install', {
+  	cwd,
 	stdio: 'ignore',
   });
   console.log('Happy hacking!')
