@@ -1,0 +1,29 @@
+{
+  "name": "react-admin-app",
+  "version": "0.0.1",
+  "description": "Download aimple react-admin template, look pretty, more free and faster develop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carrie999/react-admin-app.git",
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carrie999/react-admin-app/issues"
+  },
+  "bin": {
+    "react-admin-app": "./bin/react-admin-app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "keywords": [
+    "react-admin",
+    "template",
+    "fast",
+    "free"
+  ],
+  "author": "carrie99"
+}
