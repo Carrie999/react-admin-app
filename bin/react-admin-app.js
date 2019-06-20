@@ -49,9 +49,9 @@ try {
   execSync('git commit -m "Initial commit from react-admin-app"', {
      stdio: 'ignore',
   });
-  execSync('yarn install', {
-  	cwd,
-	stdio: 'ignore',
+  execSync('npm install', {
+  	cwd
+	// stdio: 'ignore',
   });
   console.log('Happy hacking!')
   console.log(`cd ${projectName} && yarn start`)
