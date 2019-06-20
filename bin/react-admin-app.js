@@ -44,24 +44,22 @@ function copyDir(src, dist) {
 }
 
 try {
-  execSync('git --version', { cwd, stdio: 'ignore'},);
-  execSync('git init', { cwd , stdio: 'ignore'});
-  execSync('git add -A', { stdio: 'ignore' });
+  execSync('git --version', { cwd},);
+  execSync('git init', { cwd});
+  execSync('git add . ', { stdio: 'ignore' });
   execSync('git commit -m "Initial commit from react-admin-app"', {
      stdio: 'ignore',
   });
   console.log('Installing packages. This might take a couple of minutes.')
-  console.log('Installing react, react-dom, and react-scripts...')
-  execSync('npm install', {
-  	cwd
-  },function(err, stdout, stderr){
-  	console.log( stdout )
-	console.log( stderr )
-  });
-  console.log('Happy hacking!')
-  console.log(`cd ${projectName} && yarn start`)
+  console.log('Installing react, react-dom, and ...')
+ //  execSync('npm install', {cwd},function(err, stdout, stderr){
+ //  	console.log( stdout )
+	// console.log( stderr )
+ //  });
+ //  console.log('Happy hacking!')
+ //  console.log(`cd ${projectName} && yarn start`)
 } catch (e) {
-	console.log(e)
+  console.log(e)
 }
 
 // exec(`yarn build && git add . && git commit -m ${chunk}`, {cwd}, function(err, stdout, stderr){
