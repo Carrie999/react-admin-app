@@ -44,18 +44,16 @@ function copyDir(src, dist) {
 }
 
 try {
-	function copyDir(src, dist) {
-	  spawnSync('cp', ['-r', src, dist]);	
-	}
-
-	execSync('git --version', { stdio: 'ignore' }, {cwd}, function(err, stdout, stderr){
-		console.log( stdout )
-	    console.log( stderr )
-	});
-	execSync('git add -A', { stdio: 'ignore' });
-	execSync('git commit -m "Initial commit from Create React App"', {
-	    stdio: 'ignore',
-	});
+  execSync('git --version', { stdio: 'ignore' });
+  execSync('git add -A', { stdio: 'ignore' });
+  execSync('git commit -m "Initial commit from react-admin-app"', {
+     stdio: 'ignore',
+  });
+  execSync('yarn', {
+	stdio: 'ignore',
+  });
+  console.log('Happy hacking!')
+  console.log(`cd ${projectName} && yarn start`)
 } catch (e) {
 	console.log(e)
 }
