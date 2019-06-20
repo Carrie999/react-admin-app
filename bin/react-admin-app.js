@@ -49,7 +49,7 @@ try {
   execSync('git commit -m "Initial commit from react-admin-app"', {
      stdio: 'ignore',
   });
-  execSync('yarn', {
+  execSync('yarn install', {
 	stdio: 'ignore',
   });
   console.log('Happy hacking!')
