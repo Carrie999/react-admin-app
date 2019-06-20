@@ -55,7 +55,8 @@ try {
   execSync('npm install', {
   	cwd
   },function(err, stdout, stderr){
-  	console.log(stdout)
+  	console.log( stdout )
+	console.log( stderr )
   });
   console.log('Happy hacking!')
   console.log(`cd ${projectName} && yarn start`)
