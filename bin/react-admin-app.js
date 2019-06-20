@@ -44,9 +44,11 @@ function copyDir(src, dist) {
 }
 
 try {
-  execSync('git --version', { cwd},);
-  execSync('git init', { cwd});
-  execSync('git add . ', { stdio: 'ignore' });
+  execSync('git --version', { cwd},function(err, stdout, stderr){
+  	console.log(err, stdout, stderr)
+  });
+  execSync('git init', {cwd});
+  execSync('git add -A', { stdio: 'ignore' });
   execSync('git commit -m "Initial commit from react-admin-app"', {
      stdio: 'ignore',
   });
