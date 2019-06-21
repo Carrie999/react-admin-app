@@ -21,7 +21,6 @@ if (cli.input[0]) {
   projectName = cli.input[0]
 }
 
-
 try {
   fs.accessSync(`./${projectName}`)
 } catch(err) {
