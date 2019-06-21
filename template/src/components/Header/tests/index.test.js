@@ -1,7 +1,13 @@
+
+import  CustomHeader from '../index.js'
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+
 /* eslint-disable */
-describe('<LoadingIndicator />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+describe('<CustomHeader />', () => {
+  it('renders an `.title`', () => {
+    const wrapper = shallow(<CustomHeader />);
+    expect(wrapper.find('.title')).to.have.lengthOf(1);
   });
 });
 /* eslint-disable */

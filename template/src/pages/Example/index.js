@@ -5,7 +5,7 @@ class Example extends Component {
   render() {  
     return (
       <div className={styles.example}>
-        Example home1
+        Example 
       </div>
     );
   }

@@ -1,7 +1,16 @@
+
+import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import { Route } from 'react-router-dom'
+import  Main from '../index.js'
+
 /* eslint-disable */
-describe('<LoadingIndicator />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+describe('<Main />', () => {
+  it('renders three <Route /> components', () => {
+    const wrapper = shallow(<Main />);
+    expect(wrapper.find(Route)).to.have.lengthOf(3);
   });
 });
 /* eslint-disable */
+

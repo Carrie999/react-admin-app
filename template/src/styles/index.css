@@ -56,3 +56,16 @@ code {
 .ant-menu-item.ant-menu-item-selected a{
   color: #fff !important;
 } 
+.ant-layout-sider{
+  background: #021e3e !important
+}
+body{
+  background:#eef6ff !important;
+}
+.ant-anchor-wrapper{
+  padding:15px !important;
+  background:#fff !important;
+}
+.ant-progress-inner{
+  background-color:#d4d4d4 !important;
+}

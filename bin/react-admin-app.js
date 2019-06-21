@@ -18,7 +18,7 @@ const cli = meow(`
     $ react-admin-app [projectName]
 `);
 
-let projectName = 'my-react-admin'
+let projectName = 'react-admin'
 if (cli.input[0]) {
   projectName = cli.input[0]
 }
@@ -49,39 +49,37 @@ copyDir(cwdOriginal, cwd)
 function copyDir(src, dist) {
   spawnSync('cp', ['-r', src, dist]);	
 }
-function myExecSync(cmd) {
+
+function myInExecSync(cmd) {
   var output = execSync(cmd, {
     cwd: cwd,
-    stdio:[0,1,2]
+    stdio: 'ignore'
   });
-
-  console.log(output);
 }
 
-// , {cwd, stdio: 'ignore'}
+function myOutExecSync(cmd) {
+  var output = execSync(cmd, {
+    cwd: cwd,
+    stdio: [0,1,2]
+  });
+}
+
 try {
-  execSync('git --version');
-  execSync('git init');
-  execSync('git add -A');
-  execSync('git commit -m "Initial commit from react-admin-app"');
-  // console.log('Installing packages. This might take a couple of minutes.')
-  // console.log('Installing react, react-dom, and ...')
- //  execSync('npm install', {cwd},function(err, stdout, stderr){
- //  	console.log( stdout )
-	// console.log( stderr )
- //  });
- //  console.log('Happy hacking!')
- //  console.log(`cd ${projectName} && yarn start`)
+  myInExecSync('git --version');
+  myInExecSync('git init');
+  myInExecSync('git add -A');
+  myInExecSync('git commit -m "Initial commit from react-admin-app"');
+
+  console.log('Installing packages. This might take a couple of minutes.')
+  console.log('Installing react, react-dom, and ...')
+
+  myOutExecSync('npm install');
+
+  console.log('Happy hacking!')
+  console.log(`cd ${projectName} && yarn start`)
 } catch (e) {
   console.log(e)
 }
-
-// exec(`yarn build && git add . && git commit -m ${chunk}`, {cwd}, function(err, stdout, stderr){
-//       exec('git push origin dev', {cwd: '/Users/orion/Desktop/industrialVision'}, function(err, stdout, stderr){
-// 	   console.log( stdout )
-// 	   console.log( stderr )
-// 	});
-// });
 
 
 

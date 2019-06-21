@@ -79,6 +79,7 @@ class NormalLoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.login()
+        localStorage.setItem('username','织雪纱奈')
         console.log('Received values of form: ', values);
       }
     });

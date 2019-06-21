@@ -1,0 +1,6 @@
+{
+  "presets": [
+    "@babel/preset-env","react-app"
+  ],
+  "plugins": ["transform-class-properties","@babel/transform-runtime"] 
+}
