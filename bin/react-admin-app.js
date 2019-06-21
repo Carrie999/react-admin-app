@@ -44,11 +44,11 @@ fs.writeFileSync(path.join(cwdOriginal ,'package.json'), JSON.stringify(data, nu
   }
 })
 
-// copyDir(cwdOriginal, cwd)
+copyDir(cwdOriginal, cwd)
 
-// function copyDir(src, dist) {
-//   spawnSync('cp', ['-r', src, dist]);	
-// }
+function copyDir(src, dist) {
+  spawnSync('cp', ['-r', src, dist]);	
+}
 function myExecSync(cmd) {
   var output = execSync(cmd, {
     cwd: cwd,
