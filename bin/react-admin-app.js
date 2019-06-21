@@ -24,41 +24,54 @@ if (cli.input[0]) {
 }
 
 
-// fs.mkdirSync(`./${projectName}`);
-const cwdOld = path.join(path.resolve(path.resolve(__dirname, '..')), 'template/')
-const cwd = path.join(path.resolve(path.resolve(__dirname, '..')), projectName)
 
-let data = fs.readFileSync(path.join(cwdOld ,'package.json'),"utf-8");
+
+try {
+  fs.accessSync(`./${projectName}`)
+} catch(err) {
+  fs.mkdirSync(`./${projectName}`);
+}
+
+const cwdOriginal = path.join(path.resolve(path.resolve(__dirname, '..')), 'template/')
+const cwd = path.join(process.cwd(), projectName)
+
+let data = fs.readFileSync(path.join(cwdOriginal ,'package.json'),"utf-8");
 data = JSON.parse(data)
 data.name = projectName
-fs.writeFileSync(path.join(cwdOld ,'package.json'), JSON.stringify(data, null, 4), 'utf-8', function(err, data) {
+fs.writeFileSync(path.join(cwdOriginal ,'package.json'), JSON.stringify(data, null, 4), 'utf-8', function(err, data) {
   if(err){
     console.log("error");
   }
 })
 
-copyDir(cwdOld, cwd)
+// copyDir(cwdOriginal, cwd)
 
-function copyDir(src, dist) {
-  spawnSync('cp', ['-r', src, dist]);	
+// function copyDir(src, dist) {
+//   spawnSync('cp', ['-r', src, dist]);	
+// }
+function myExecSync(cmd) {
+  var output = execSync(cmd, {
+    cwd: cwd,
+    stdio:[0,1,2]
+  });
+
+  console.log(output);
 }
 
+// , {cwd, stdio: 'ignore'}
 try {
-  execSync('git --version', { cwd, stdio:'ignore' });
-  execSync('git init', {cwd, stdio: 'ignore'});
-  execSync('git add -A', {cwd, stdio: 'ignore'});
-  execSync('git commit -m "Initial commit from react-admin-app"', {
-  	cwd,
-    stdio: 'ignore',
-  });
-  console.log('Installing packages. This might take a couple of minutes.')
-  console.log('Installing react, react-dom, and ...')
-  execSync('npm install', {cwd},function(err, stdout, stderr){
-  	console.log( stdout )
-	console.log( stderr )
-  });
-  console.log('Happy hacking!')
-  console.log(`cd ${projectName} && yarn start`)
+  execSync('git --version');
+  execSync('git init');
+  execSync('git add -A');
+  execSync('git commit -m "Initial commit from react-admin-app"');
+  // console.log('Installing packages. This might take a couple of minutes.')
+  // console.log('Installing react, react-dom, and ...')
+ //  execSync('npm install', {cwd},function(err, stdout, stderr){
+ //  	console.log( stdout )
+	// console.log( stderr )
+ //  });
+ //  console.log('Happy hacking!')
+ //  console.log(`cd ${projectName} && yarn start`)
 } catch (e) {
   console.log(e)
 }
