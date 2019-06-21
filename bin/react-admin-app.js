@@ -5,12 +5,10 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 'use strict';
 const meow = require('meow')
 const fs = require('fs');
 const path = require('path');
-
 const { execSync, spawnSync } = require('child_process');
 
 const cli = meow(`
@@ -22,8 +20,6 @@ let projectName = 'react-admin'
 if (cli.input[0]) {
   projectName = cli.input[0]
 }
-
-
 
 
 try {
@@ -51,14 +47,14 @@ function copyDir(src, dist) {
 }
 
 function myInExecSync(cmd) {
-  var output = execSync(cmd, {
+  execSync(cmd, {
     cwd: cwd,
     stdio: 'ignore'
   });
 }
 
 function myOutExecSync(cmd) {
-  var output = execSync(cmd, {
+  execSync(cmd, {
     cwd: cwd,
     stdio: [0,1,2]
   });

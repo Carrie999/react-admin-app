@@ -4,7 +4,7 @@
 
 Small and simple react-admin template, look pretty, more free and more faster for development
 
-dependencies
+## dependencies
 + react 
 + react-router
 + axios
@@ -42,7 +42,7 @@ $ react-admin-app --help
 ### Donate
 微信
 
-<img src="wx.jpg" width="250">
+<img src="wx.jpg" width="280">
 
 
 ## License
