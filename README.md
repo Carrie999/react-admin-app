@@ -4,7 +4,7 @@
 
 Small and simple react-admin template, look pretty, more free and more faster for development
 
-## dependencies
+## Dependencies
 + react 
 + react-router
 + axios
@@ -13,7 +13,7 @@ Small and simple react-admin template, look pretty, more free and more faster fo
 + react-loadable
 + less-loader
 
-## character
+## Character
 + Fewer configuration 
 + Tmplate and less code for you
 
