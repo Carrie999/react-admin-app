@@ -1,6 +1,6 @@
 {
   "name": "react-admin-app",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Download simple react-admin template, look pretty, more free and faster develop",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "bin": {
     "react-admin-app": "./bin/react-admin-app.js"
   },
-  "scripts":{
+  "scripts": {
     "index": "node ./bin/react-admin-app.js"
   },
   "engines": {
@@ -27,6 +27,7 @@
   ],
   "author": "carrie999",
   "dependencies": {
+    "chalk": "^2.4.2",
     "meow": "^5.0.0"
   }
 }
